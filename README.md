@@ -107,8 +107,8 @@ Publishing is automated by the [`publish-email-ses`](../.github/workflows/publis
 To cut a release, bump `version` in `package.json` and push a matching tag:
 
 ```sh
-git tag email-ses-v0.1.0
-git push origin email-ses-v0.1.0
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 The workflow can also be run manually from the Actions tab (`workflow_dispatch`).

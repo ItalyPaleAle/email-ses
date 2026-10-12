@@ -1,6 +1,6 @@
 {
   "name": "@italypaleale/email-ses",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Zero-runtime-dependency library to send emails via the AWS SES v2 HTTP API",
   "keywords": [
     "aws",
