@@ -9,7 +9,7 @@
     "sigv4"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "ItalyPaleAle",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/italypaleale/DemoBuilderAgent.git",
@@ -48,5 +48,9 @@
     "oxlint": "1.63.0",
     "typescript": "7.0.2",
     "vitest": "5.0.3"
-  }
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.6.0"
 }
