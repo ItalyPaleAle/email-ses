@@ -1,4 +1,4 @@
-# @italypaleale/email-ses
+# email-ses
 
 A tiny, zero-dependency TypeScript library for sending email through the [AWS SES v2](https://docs.aws.amazon.com/ses/latest/APIReference-V2/Welcome.html) HTTP API.
 
@@ -15,7 +15,7 @@ Temporary STS credentials (with a session token) are also supported.
 ## Usage
 
 ```ts
-import { SesClient } from '@italypaleale/email-ses'
+import { SesClient } from 'email-ses'
 
 const client = new SesClient({
     region: 'us-east-1',
@@ -42,7 +42,7 @@ console.log('Sent message', messageId)
 There is also a one-shot helper that constructs a client and sends in a single call:
 
 ```ts
-import { sendEmail } from '@italypaleale/email-ses'
+import { sendEmail } from 'email-ses'
 
 await sendEmail(
     { region: 'us-east-1', credentials: { accessKeyId, secretAccessKey } },
