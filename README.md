@@ -6,7 +6,7 @@ It does not use the AWS SDK. It talks to the SES REST endpoint directly and sign
 
 ## Authorization
 
-AWS authorizes API requests with an **access key ID + secret access key** pair (this is the "API key").
+AWS authorizes API requests with an access key ID + secret access key pair (this is the "API key").
 
 Create an IAM user/role with the `ses:SendEmail` permission and pass its credentials to the client.
 
@@ -88,7 +88,11 @@ The client does not retry automatically. SES may already have accepted an email 
 
 ## Installation
 
-This package is published on [GitHub Packages](https://docs.github.com/en/packages) under the `@italypaleale` scope. To install it, point that scope at the GitHub npm registry and authenticate with a token that has `read:packages`:
+```sh
+pnpm add @italypaleale/email-ses
+```
+
+This package is also published on [GitHub Packages](https://docs.github.com/en/packages). To install it from GitHub Packages, point that scope at the GitHub npm registry and authenticate with a token that has `read:packages`:
 
 ```ini
 # .npmrc
@@ -96,13 +100,9 @@ This package is published on [GitHub Packages](https://docs.github.com/en/packag
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
-```sh
-pnpm add @italypaleale/email-ses
-```
-
 ## Publishing
 
-Publishing is automated by the [`publish-email-ses`](../.github/workflows/publish-email-ses.yml) GitHub Actions workflow.
+Publishing to GitHub Packages is automated by the [`publish-email-ses`](../.github/workflows/publish-email-ses.yml) GitHub Actions workflow.
 
 To cut a release, bump `version` in `package.json` and push a matching tag:
 
@@ -111,7 +111,11 @@ git tag v1.0.0
 git push origin v1.0.0
 ```
 
-The workflow can also be run manually from the Actions tab (`workflow_dispatch`).
+To publish to NPM, from a local machine:
+
+```sh
+pnpm publish
+```
 
 ## Scripts
 
