@@ -89,7 +89,7 @@ The client does not retry automatically. SES may already have accepted an email 
 ## Installation
 
 ```sh
-pnpm add @italypaleale/email-ses
+pnpm add email-ses
 ```
 
 This package is also published on [GitHub Packages](https://docs.github.com/en/packages). To install it from GitHub Packages, point that scope at the GitHub npm registry and authenticate with a token that has `read:packages`:
