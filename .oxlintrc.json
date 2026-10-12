@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "env": {
+    "browser": true,
+    "worker": true,
+    "es2022": true
+  },
+  "rules": {
+    "import/no-unassigned-import": "off",
+    "curly": "error"
+  },
+  "ignorePatterns": ["dist", "dev-dist", "node_modules"]
+}

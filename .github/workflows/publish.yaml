@@ -1,0 +1,54 @@
+# Publishes @italypaleale/email-ses to GitHub Packages
+name: Publish
+
+on:
+    push:
+        tags:
+            - 'v*'
+    workflow_dispatch:
+
+jobs:
+    publish:
+        runs-on: ubuntu-26.04
+        permissions:
+            contents: read
+            packages: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+            - name: Setup pnpm and Node.js
+              uses: pnpm/setup@fbda4c85fc2e1e08721cd8763afea8f48d60f024 # v3.0.0
+              with:
+                  # Do not cache in release workflows
+                  cache: false
+
+            - name: Install dependencies
+              run: |
+                  pnpm install
+
+            - name: Type-check
+              run: |
+                  pnpm run check
+
+            - name: Test
+              run: |
+                  pnpm run test
+
+            - name: Build
+              run: |
+                  pnpm run build
+
+            - name: Publish to GitHub Packages
+              run: |
+                  pnpm publish --no-git-checks
+              env:
+                  # Routes the @italypaleale scope to GitHub Packages and authenticates with the workflow token (requires pnpm 11.10.0 or newer).
+                  pnpm_config__auth: |
+                      {
+                        "https://npm.pkg.github.com": {
+                          "@italypaleale": {
+                            "authToken": ${{ toJSON(secrets.GITHUB_TOKEN) }}
+                          }
+                        }
+                      }

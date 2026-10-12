@@ -1,0 +1,52 @@
+{
+  "name": "@italypaleale/email-ses",
+  "version": "0.1.0",
+  "description": "Zero-runtime-dependency library to send emails via the AWS SES v2 HTTP API",
+  "keywords": [
+    "aws",
+    "email",
+    "ses",
+    "sigv4"
+  ],
+  "license": "MIT",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italypaleale/DemoBuilderAgent.git",
+    "directory": "email-ses"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "node --input-type=module -e \"import { rmSync } from 'node:fs'; rmSync('dist', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
+    "check": "tsc --noEmit && pnpm run format:check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "format": "oxfmt --write --ignore-path=.gitignore",
+    "format:check": "oxfmt --check --ignore-path=.gitignore",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "oxfmt": "0.48.0",
+    "oxlint": "1.63.0",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  }
+}

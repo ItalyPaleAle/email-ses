@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 4,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["*.json", "*.jsonc", "*.json5"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.md"],
+      "options": {
+        "proseWrap": "never"
+      }
+    },
+    {
+      "files": ["*.html", "*.htm"],
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}
